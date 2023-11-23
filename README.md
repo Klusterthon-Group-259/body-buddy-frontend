@@ -6,7 +6,7 @@ BodyBuddy is a web app that allows patients to describe their symptoms and recei
 
 ## About this Project
 
-This is the front-end development of the BodyBuddy web app and here is the hosted link to the BodyBuddy web app: [BodyBuddy]()
+This is the front-end development of the BodyBuddy web app and here is the hosted link to the BodyBuddy web app: [BodyBuddy](https://trybodybuddy.netlify.app/)
 
 ## Tech Stack
 
