@@ -1,3 +1,9 @@
+import AuthTemplate from "./components/AuthTemplate";
+
 export default function CreateAccount() {
-  return <div>CreateAccount</div>;
+  return (
+    <>
+      <AuthTemplate title="Create an account" buttonText="Create Account" />
+    </>
+  );
 }

@@ -2,7 +2,16 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    fontFamily: {},
+    extend: {
+      colors: {
+        "alice-blue": "#EAF0F6",
+        azul: "#186AA6",
+        "davy's-gray": "#4D4F51",
+        "dim-gray": "#686464",
+        vermilion: "#DD4C3B",
+      },
+    },
   },
   plugins: [],
 };

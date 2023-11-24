@@ -9,6 +9,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
 // pages
+import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import CreateAccount from "./pages/Auth/CreateAccount";
 import VerifyEmail from "./pages/Auth/VerifyEmail";
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<AuthLayout />}>
+        <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="create-account" element={<CreateAccount />} />
         <Route path="verify-email" element={<VerifyEmail />} />
