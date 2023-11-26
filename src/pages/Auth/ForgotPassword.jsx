@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bodyBuddy from "../../assets/bodyBuddy.png";
+import bodyBuddy from "../../assets/bodybuddy.png";
 import AuthContainer from "./components/AuthContainer";
 import Logo from "../../components/Logo";
 import Title from "../../components/Title";
