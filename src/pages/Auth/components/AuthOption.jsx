@@ -22,5 +22,5 @@ AuthOption.propTypes = {
   question: PropTypes.string,
   link: PropTypes.string,
   className: PropTypes.string,
-  action: PropTypes.ReactNode,
+  action: PropTypes.string,
 };

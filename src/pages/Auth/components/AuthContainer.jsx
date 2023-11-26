@@ -14,7 +14,7 @@ export default function AuthContainer({
 }
 
 AuthContainer.propTypes = {
-  mainClassName: PropTypes.ReactNode,
-  divClassName: PropTypes.ReactNode,
-  children: PropTypes.ReactNode,
+  mainClassName: PropTypes.string,
+  divClassName: PropTypes.string,
+  children: PropTypes.node,
 };

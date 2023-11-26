@@ -18,7 +18,7 @@ export default function ForgotPassword() {
       <p className="text-slate-gray text-sm w-[350px] mb-5">
         An email with your password reset link will be emailed to you
       </p>
-      <FormContainer>
+      <FormContainer className="flex flex-col">
         <Input
           id="useremail"
           label="Email"
