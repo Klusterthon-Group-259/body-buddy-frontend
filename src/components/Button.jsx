@@ -18,5 +18,5 @@ export default function Button({ type = "submit", className, children }) {
 Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.ReactNode,
+  children: PropTypes.node,
 };

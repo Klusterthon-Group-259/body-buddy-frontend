@@ -9,6 +9,7 @@ export default {
         azul: "#186AA6",
         "davy's-gray": "#4D4F51",
         "dim-gray": "#686464",
+        "slate-gray": "#64748B",
         vermilion: "#DD4C3B",
       },
     },

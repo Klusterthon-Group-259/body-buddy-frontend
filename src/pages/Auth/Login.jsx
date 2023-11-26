@@ -6,7 +6,10 @@ export default function Login() {
       <AuthTemplate
         title="Welcome back"
         buttonText="Login"
-        isCreateAccount={true}
+        question="Don't have an account?"
+        link="/create-account"
+        className="text-azul"
+        action="Sign up"
       />
     </>
   );

@@ -19,5 +19,5 @@ export default function ButtonLink({ link, className, children }) {
 ButtonLink.propTypes = {
   link: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.ReactNode,
+  children: PropTypes.node,
 };
