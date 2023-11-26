@@ -23,10 +23,10 @@ export const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="create-account" element={<CreateAccount />} />
-        <Route path="verify-email" element={<VerifyEmail />} />
-        <Route path="email-verified" element={<EmailVerified />} />
-        <Route path="forgot-password" element={<ForgotPassword />} />
       </Route>
+      <Route path="verify-email" element={<VerifyEmail />} />
+      <Route path="email-verified" element={<EmailVerified />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
       <Route path="dashboard" element={<DashboardLayout />}></Route>
     </Route>
   )

@@ -1,11 +1,18 @@
 import PropTypes from "prop-types";
+import FormContainer from "../../../components/FormContainer";
 import Input from "../../../components/Input";
 import AuthOption from "./AuthOption";
 import Button from "../../../components/Button";
 
-export default function AuthForm({ buttonText, isCreateAccount }) {
+export default function AuthForm({
+  buttonText,
+  question,
+  link,
+  className,
+  action,
+}) {
   return (
-    <form className="flex flex-col">
+    <FormContainer>
       <Input
         id="useremail"
         label="Email"
@@ -19,28 +26,24 @@ export default function AuthForm({ buttonText, isCreateAccount }) {
         type="password"
         placeholder="Enter your password"
       />
-      <AuthOption
-        question="Forgot Password?"
-        link="/forgot-password"
-        className="text-vermilion"
-        action="Reset"
-      />
+      <AuthOption />
       <Button type="submit" className="w-full mt-2.5 text-sm">
         {buttonText}
       </Button>
-      {isCreateAccount && (
-        <AuthOption
-          question="Don't have an account?"
-          link="/create-account"
-          className="text-azul"
-          action="Sign up"
-        />
-      )}
-    </form>
+      <AuthOption
+        question={question}
+        link={link}
+        className={className}
+        action={action}
+      />
+    </FormContainer>
   );
 }
 
 AuthForm.propTypes = {
   buttonText: PropTypes.string,
-  isCreateAccount: PropTypes.boolean,
+  question: PropTypes.string,
+  link: PropTypes.string,
+  className: PropTypes.string,
+  action: PropTypes.string,
 };
