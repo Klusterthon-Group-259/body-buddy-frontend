@@ -1,5 +1,5 @@
 import AuthContainer from "./components/AuthContainer";
-import bodyBuddy from "../../assets/bodyBuddy.png";
+import bodyBuddy from "../../assets/bodybuddy.png";
 import Logo from "../../components/Logo";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
