@@ -3,7 +3,7 @@ import AuthContainer from "./components/AuthContainer";
 import ImageHolder from "../../components/ImageHolder";
 import Title from "../../components/Title";
 import ButtonLink from "../../components/ButtonLink";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -11,21 +11,20 @@ export default function EmailVerified() {
   const [message, setMessage] = useState("");
   const { token } = useParams();
 
-  const fetchSuccessfulEmailVerification = useCallback(async () => {
-    try {
-      const response = axios.get(
-        `https://bodybuddy.onrender.com/api/v1/email?token=${token}`
-      );
-      const verificationMessage = response.message;
-      setMessage(verificationMessage);
-    } catch (error) {
-      console.error("Signup failed:", error);
-    }
-  }, [token]);
-
   useEffect(() => {
+    const fetchSuccessfulEmailVerification = async () => {
+      try {
+        const response = await axios.get(
+          `https://bodybuddy.onrender.com/api/v1/email?token=${token}`
+        );
+        const verificationMessage = response.data.message;
+        setMessage(verificationMessage);
+      } catch (error) {
+        console.error("Email verification failed:", error);
+      }
+    };
     fetchSuccessfulEmailVerification();
-  }, [fetchSuccessfulEmailVerification]);
+  }, [token]);
 
   return (
     <AuthContainer
