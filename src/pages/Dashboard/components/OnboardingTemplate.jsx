@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import bodyBuddy from "../../../assets/bodyBuddy.png";
+import bodyBuddy from "../../../assets/bodybuddy.png";
 import arrowRight from "../../../assets/arrow-right.png";
 import OnboardingContainer from "./OnboardingContainer";
 import Logo from "../../../components/Logo";
