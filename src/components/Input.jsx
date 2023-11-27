@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { twMerge } from "tailwind-merge";
+// import { useForm } from "react-hook-form";
 
 /* eslint-disable react/prop-types */
 export default function Input({
@@ -13,8 +14,9 @@ export default function Input({
   register,
   required,
 }) {
+  // const { register } = useForm();
   return (
-    <label htmlFor={id} className={twMerge(className)}>
+    <label htmlFor={id} className={twMerge("block", className)}>
       <span className={twMerge("text-sm mb-1", labelClassName)}>{label}</span>
       <input
         {...register(id, { required })}
@@ -38,4 +40,6 @@ Input.propTypes = {
   className: PropTypes.string,
   labelClassName: PropTypes.string,
   inputClassName: PropTypes.string,
+  register: PropTypes.func,
+  required: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };

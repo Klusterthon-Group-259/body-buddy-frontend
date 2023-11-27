@@ -5,6 +5,7 @@ export default function OnboardingPage3() {
     <>
       <OnboardingTemplate
         title="Let me know your more about you"
+        id="genotype"
         question="What is your blood genotype? (It is okay if you don’t know)?"
         firstPlaceholder="Male/Female/Others"
         isTwoInputs={false}
