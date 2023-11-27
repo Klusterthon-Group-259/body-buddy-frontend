@@ -3,8 +3,12 @@ import bodyBuddy from "../../assets/bodybuddy.png";
 import Logo from "../../components/Logo";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
+import { useLocation } from "react-router-dom";
 
 export default function VerifyEmail() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email");
   return (
     <AuthContainer
       mainClassName="w-screen h-screen bg-alice-blue flex items-center justify-center"
@@ -18,7 +22,7 @@ export default function VerifyEmail() {
         You’re almost done here. We sent an email to
       </p>
       <p className="font-bold text-center text-sm text-slate-gray mb-6">
-        Johndoe@gmail.com
+        {email}
       </p>
       <p className="text-center text-sm text-slate-gray mb-3">
         Just click on the link in that email to complete your signup. If you
