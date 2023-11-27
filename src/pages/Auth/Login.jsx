@@ -5,11 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const LoadingContext = useLoading();
   const { isLoading, handleIsLoading } = LoadingContext;
   const { reset } = useForm();
+
+  const navigate = useNavigate();
 
   const handleLoginToApp = async (values) => {
     handleIsLoading();
@@ -19,18 +22,15 @@ export default function Login() {
         values
       );
 
-      console.log(response.data);
-
       const isSuccessful = response.data;
 
-      console.log(isSuccessful);
-
-      if (response.status === 200) {
+      if (isSuccessful) {
         console.log("Signup successful:", response.data);
         toast.success("Logged in successfully!", {
           position: toast.POSITION.TOP_RIGHT,
         });
         reset();
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Signup failed:", error);
