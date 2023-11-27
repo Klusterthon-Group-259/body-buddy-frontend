@@ -48,7 +48,12 @@ export default function AuthForm({
         type="password"
         placeholder="Enter your password"
       />
-      <AuthOption />
+      <AuthOption
+        question="Forgot Password?"
+        link="/forgot-password"
+        className="text-vermilion"
+        action="Reset"
+      />
       <Button type="submit" className="w-full mt-2.5 text-sm">
         {buttonText}
       </Button>
