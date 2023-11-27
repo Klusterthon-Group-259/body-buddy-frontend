@@ -23,17 +23,16 @@ export default function Login() {
       );
 
       const isSuccessful = response.data;
+      const id = response.data.id;
 
       if (isSuccessful) {
-        console.log("Signup successful:", response.data);
         toast.success("Logged in successfully!", {
           position: toast.POSITION.TOP_RIGHT,
         });
         reset();
-        navigate("/dashboard");
+        navigate(`/dashboard?id=${encodeURIComponent(id)}`);
       }
     } catch (error) {
-      console.error("Signup failed:", error);
       toast.error("Something went wrong. Please try again", {
         position: toast.POSITION.TOP_RIGHT,
       });

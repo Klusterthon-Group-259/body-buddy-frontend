@@ -12,7 +12,6 @@ import { twMerge } from "tailwind-merge";
 import ButtonLink from "../../../components/ButtonLink";
 import { useForm } from "react-hook-form";
 
-/* eslint-disable react/prop-types */
 export default function OnboardingTemplate({
   title,
   id,
@@ -21,8 +20,25 @@ export default function OnboardingTemplate({
   secondPlaceholder,
   isTwoInputs,
   isLastOnboardingPage,
+  updateUserName,
+  updateUserGender,
+  updateUserAge,
 }) {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    if (question === "firstName") {
+      updateUserName(data);
+    }
+    if (id === "gender") {
+      updateUserGender(data);
+    }
+    if (id === "age") {
+      updateUserAge(data);
+    }
+  };
+
   return (
     <OnboardingContainer classname="max-w-[420px] h-fit p-10 ">
       <Logo src={bodyBuddy} className="w-28 h-auto mb-16" />
@@ -35,7 +51,7 @@ export default function OnboardingTemplate({
       {isLastOnboardingPage ? (
         <ButtonLink link="/dashboard/chat">Ask questions</ButtonLink>
       ) : (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div
             className={twMerge(
               "mb-2.5",
@@ -78,4 +94,7 @@ OnboardingTemplate.propTypes = {
   secondPlaceholder: PropTypes.string,
   isTwoInputs: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   isLastOnboardingPage: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  updateUserName: PropTypes.func,
+  updateUserGender: PropTypes.func,
+  updateUserAge: PropTypes.func,
 };

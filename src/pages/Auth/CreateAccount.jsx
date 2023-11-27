@@ -26,7 +26,6 @@ export default function CreateAccount() {
       const isSuccessful = response.data;
 
       if (isSuccessful) {
-        console.log("Signup successful:", response.data);
         toast.success(
           "Account created successfully! We have sent you an email",
           {
@@ -37,7 +36,6 @@ export default function CreateAccount() {
         navigate(`/verify-email?email=${encodeURIComponent(email)}`);
       }
     } catch (error) {
-      console.error("Signup failed:", error);
       toast.error("Something went wrong. Please try again", {
         position: toast.POSITION.TOP_RIGHT,
       });

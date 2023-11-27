@@ -40,6 +40,6 @@ Input.propTypes = {
   className: PropTypes.string,
   labelClassName: PropTypes.string,
   inputClassName: PropTypes.string,
-  register: PropTypes.func,
+  // register: PropTypes.func,
   required: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };

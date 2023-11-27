@@ -17,10 +17,12 @@ export default function VerifyEmail() {
     const values = {
       userEmail: email,
     };
-    console.log(values);
 
     try {
-      const response = await axios.post("/api/v1/email", values);
+      const response = await axios.post(
+        "https://bodybuddy.onrender.com/api/v1/email",
+        values
+      );
       const isSuccessful = response.data;
 
       if (isSuccessful) {
@@ -29,7 +31,6 @@ export default function VerifyEmail() {
         });
       }
     } catch (error) {
-      console.error(error);
       toast.error("Something went wrong. Please try again", {
         position: toast.POSITION.TOP_RIGHT,
       });
