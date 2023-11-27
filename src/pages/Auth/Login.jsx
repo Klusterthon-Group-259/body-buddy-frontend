@@ -4,14 +4,15 @@ import AuthTemplate from "./components/AuthTemplate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 export default function Login() {
   const LoadingContext = useLoading();
-  const { isLoading, setLoading } = LoadingContext;
+  const { isLoading, handleIsLoading } = LoadingContext;
   const { reset } = useForm();
 
   const handleLoginToApp = async (values) => {
-    setLoading(true);
+    handleIsLoading();
     try {
       const response = await axios.post(
         "https://bodybuddy.onrender.com/api/v1/auth/login",
@@ -37,7 +38,7 @@ export default function Login() {
         position: toast.POSITION.TOP_RIGHT,
       });
     } finally {
-      setLoading(false);
+      handleIsLoading();
     }
   };
 
@@ -56,3 +57,8 @@ export default function Login() {
     </>
   );
 }
+
+Login.propTypes = {
+  isLoading: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  handleIsLoading: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+};

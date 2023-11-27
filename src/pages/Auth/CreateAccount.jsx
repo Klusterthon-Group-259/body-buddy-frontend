@@ -5,15 +5,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function CreateAccount() {
   const LoadingContext = useLoading();
-  const { isLoading, setLoading } = LoadingContext;
+  const { isLoading, handleIsLoading } = LoadingContext;
   const { reset } = useForm();
   const navigate = useNavigate();
 
   const handleCreateAccount = async (values) => {
-    setLoading(true);
+    handleIsLoading();
 
     const { email } = values;
 
@@ -41,7 +42,7 @@ export default function CreateAccount() {
         position: toast.POSITION.TOP_RIGHT,
       });
     } finally {
-      setLoading(false);
+      handleIsLoading();
     }
   };
 
@@ -60,3 +61,8 @@ export default function CreateAccount() {
     </>
   );
 }
+
+CreateAccount.propTypes = {
+  isLoading: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  handleIsLoading: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+};

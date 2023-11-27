@@ -38,7 +38,7 @@ export default function AuthForm({
         label="Email"
         type="email"
         placeholder="Enter your email"
-        className="mb-2.5"
+        className="mb-4"
       />
       <Input
         register={register}
@@ -48,13 +48,13 @@ export default function AuthForm({
         type="password"
         placeholder="Enter your password"
       />
-      <AuthOption
+      {/* <AuthOption
         question="Forgot Password?"
         link="/forgot-password"
         className="text-vermilion"
         action="Reset"
-      />
-      <Button type="submit" className="w-full mt-2.5 text-sm">
+      /> */}
+      <Button type="submit" className="w-full mt-4 mb-2 text-sm">
         {buttonText}
       </Button>
       <AuthOption

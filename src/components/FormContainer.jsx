@@ -19,5 +19,5 @@ export default function FormContainer({ children, className }) {
 /* eslint-disable react/prop-types */
 FormContainer.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.sting,
+  className: PropTypes.string,
 };

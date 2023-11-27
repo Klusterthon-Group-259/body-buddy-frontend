@@ -5,6 +5,7 @@ export default function OnboardingPage2() {
     <>
       <OnboardingTemplate
         title="Let me know your more about you"
+        id="gender"
         question="What is your gender?"
         firstPlaceholder="Male/Female/Others"
         isTwoInputs={false}

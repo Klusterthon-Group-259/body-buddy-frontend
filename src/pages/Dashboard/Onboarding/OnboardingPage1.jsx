@@ -5,6 +5,7 @@ export default function OnboardingPage1() {
     <>
       <OnboardingTemplate
         title="Let me know your more about you"
+        id="firstName"
         question="What is your name?"
         firstPlaceholder="Enter your first name here"
         secondPlaceholder="Enter your last name here"

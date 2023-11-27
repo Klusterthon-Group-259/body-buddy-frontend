@@ -6,6 +6,6 @@ export default function OnboardingContainer({ className, children }) {
 }
 
 OnboardingContainer.propTypes = {
-  className: PropTypes.ReactNode,
-  children: PropTypes.ReactNode,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
