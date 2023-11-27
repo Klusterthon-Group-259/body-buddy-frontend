@@ -13,6 +13,7 @@ export default function EmailVerified() {
 
   useEffect(() => {
     const fetchSuccessfulEmailVerification = async () => {
+      console.log(token);
       try {
         const response = await axios.get(
           `https://bodybuddy.onrender.com/api/v1/email?token=${token}`
