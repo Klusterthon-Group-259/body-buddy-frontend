@@ -23,14 +23,18 @@ export default function Login() {
       );
 
       const isSuccessful = response.data;
-      const id = response.data.id;
+      const id = response.data.user.id;
+      const accessToken = response.data.accessToken;
+      const URL = `/dashboard?id=${encodeURIComponent(
+        id
+      )}&token=${encodeURIComponent(accessToken)}`;
 
       if (isSuccessful) {
         toast.success("Logged in successfully!", {
           position: toast.POSITION.TOP_RIGHT,
         });
         reset();
-        navigate(`/dashboard?id=${encodeURIComponent(id)}`);
+        navigate(URL);
       }
     } catch (error) {
       toast.error("Something went wrong. Please try again", {

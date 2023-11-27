@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 // import OnboardingTemplate from "../components/OnboardingTemplate";
 import OnboardingContainer from "../components/OnboardingContainer";
 import { useOnboardingForm } from "../../../hooks/useOnboardingForm";
+import { useAuth } from "../../../hooks/useAuth";
 import Logo from "../../../components/Logo";
 import bodyBuddy from "../../../assets/bodybuddy.png";
 import Title from "../../../components/Title";
@@ -18,12 +19,16 @@ export default function OnboardingPage1() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
+  const accessToken = queryParams.get("token");
   const formContext = useOnboardingForm();
+  const AuthContext = useAuth();
+  const { setToken } = AuthContext;
   const { form, setForm } = formContext;
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
+    setToken(accessToken);
     if (data.firstName && data.lastName) {
       setForm({
         id: id,
