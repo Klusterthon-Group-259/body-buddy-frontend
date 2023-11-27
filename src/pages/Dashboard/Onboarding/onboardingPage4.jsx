@@ -14,16 +14,13 @@ import arrowRight from "../../../assets/arrow-right.png";
 
 export default function OnboardingPage4() {
   const formContext = useOnboardingForm();
-  const { form, setForm } = formContext;
+  const { form, updateForm } = formContext;
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     if (data.age) {
-      setForm({
-        firstName: form.firstName,
-        lastName: form.lastName,
-        gender: form.gender,
+      updateForm({
         age: Number(data.age),
       });
       navigate("/dashboard/onboarding-page-5");

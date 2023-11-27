@@ -22,26 +22,30 @@ export default function Login() {
         values
       );
 
-      const isSuccessful = response.data;
-      const id = response.data.user.id;
-      const accessToken = response.data.accessToken;
-      const URL = `/dashboard?id=${encodeURIComponent(
-        id
-      )}&token=${encodeURIComponent(accessToken)}`;
+      const { data } = response.data;
+      const accessToken = data.accessToken;
+      const id = data.user.id;
 
-      if (isSuccessful) {
+      if (response.status === 200) {
+        const URL = `/dashboard?id=${encodeURIComponent(
+          id
+        )}&token=${encodeURIComponent(accessToken)}`;
+
         toast.success("Logged in successfully!", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        reset();
         navigate(URL);
       }
+
+      reset();
     } catch (error) {
+      console.error(error);
       toast.error("Something went wrong. Please try again", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } finally {
       handleIsLoading();
+      reset();
     }
   };
 

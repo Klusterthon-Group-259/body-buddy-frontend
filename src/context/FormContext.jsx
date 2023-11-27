@@ -5,15 +5,19 @@ export const FormContext = createContext();
 
 export function FormProvider({ children }) {
   const [form, setForm] = useState({
-    id: "",
+    id: 0,
     age: "",
     firstName: "",
-    lastname: "",
+    lastName: "",
     gender: "",
   });
 
+  const updateForm = (updatedValues) => {
+    setForm((prevForm) => ({ ...prevForm, ...updatedValues }));
+  };
+
   return (
-    <FormContext.Provider value={{ form, setForm }}>
+    <FormContext.Provider value={{ form, updateForm }}>
       {children}
     </FormContext.Provider>
   );

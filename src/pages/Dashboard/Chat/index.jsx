@@ -19,10 +19,15 @@ export default function Chat() {
 
     try {
       if (token) {
-        const response = axios.get(
-          `https://bodybuddy.onrender.com/api/v1/bot/chat?prompt=${prompt}`
+        const response = await axios.get(
+          `https://bodybuddy.onrender.com/api/v1/bot/chat?prompt=${prompt}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
-        if (response) {
+        if (response.data) {
           setShowChatUi(true);
         }
         console.log(response);
@@ -41,7 +46,9 @@ export default function Chat() {
 
   return (
     <>
-      {showChatUi ? null : (
+      {showChatUi ? (
+        <div>chat</div>
+      ) : (
         <div className="max-w-[500px] flex flex-col items-center">
           <div className="w-[250px] flex flex-col items-center gap-5 mb-10">
             {/* <div className="w-[80px] h-[80px] border rounded-full flex justify-center items-center">

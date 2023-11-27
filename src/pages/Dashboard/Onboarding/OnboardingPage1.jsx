@@ -23,19 +23,18 @@ export default function OnboardingPage1() {
   const formContext = useOnboardingForm();
   const AuthContext = useAuth();
   const { setToken } = AuthContext;
-  const { form, setForm } = formContext;
+  const { form, updateForm } = formContext;
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     setToken(accessToken);
+    console.log(accessToken, id);
     if (data.firstName && data.lastName) {
-      setForm({
+      updateForm({
         id: id,
         firstName: data.firstName,
         lastName: data.lastName,
-        gender: form.gender,
-        age: form.age,
       });
       navigate("/dashboard/onboarding-page-2");
     }

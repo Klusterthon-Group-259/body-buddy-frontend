@@ -8,34 +8,39 @@ import Button from "../../../components/Button";
 import { useOnboardingForm } from "../../../hooks/useOnboardingForm";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth";
 
 export default function OnboardingPage5() {
   const formContext = useOnboardingForm();
-  const { form, setForm } = formContext;
+  const { form } = formContext;
   const navigate = useNavigate();
+  const AuthContext = useAuth();
+  const { token } = AuthContext;
 
   const handleSubmit = async () => {
     console.log(form);
+    console.log(token);
+
     try {
-      const response = axios.put(
-        "https://bodybuddy.onrender.com/api/v1/user/update",
-        form
-      );
+      if (token) {
+        const response = await axios.put(
+          "https://bodybuddy.onrender.com/api/v1/user/update",
+          form,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      const isSuccessful = response.data;
+        const isSuccessful = response.data;
 
-      if (isSuccessful) {
-        navigate("/dashboard/chat");
+        if (isSuccessful) {
+          navigate("/dashboard/chat");
+        }
       }
     } catch (error) {
       console.error(error);
-    } finally {
-      setForm({
-        firstName: "",
-        lastName: "",
-        gender: "",
-        age: "",
-      });
     }
   };
 
