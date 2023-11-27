@@ -3,7 +3,6 @@ import Input from "../../../components/Input";
 import AuthOption from "./AuthOption";
 import Button from "../../../components/Button";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 
 export default function AuthForm({
   buttonText,
@@ -11,35 +10,22 @@ export default function AuthForm({
   link,
   className,
   action,
+  createAccount,
+  LoginToApp,
 }) {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     const values = {
       email: data.email,
       password: data.password,
     };
+    if (buttonText === "Create Account") {
+      createAccount(values);
+    }
 
-    try {
-      const response = await axios.post(
-        "https://bodybuddy.onrender.com/api/v1/user/signup",
-        values
-      );
-
-      console.log(response.data);
-
-      const isSuccessful = response.data;
-
-      console.log(isSuccessful);
-
-      if (response.status === 200) {
-        console.log(values);
-        console.log("Signup successful:", response.data);
-      } else {
-        console.error("Unexpected response:", response);
-      }
-    } catch (error) {
-      console.error("Signup failed:", error);
+    if (buttonText === "Login") {
+      LoginToApp(values);
     }
   };
 
@@ -82,4 +68,6 @@ AuthForm.propTypes = {
   link: PropTypes.string,
   className: PropTypes.string,
   action: PropTypes.string,
+  createAccount: PropTypes.func,
+  LoginToApp: PropTypes.func,
 };

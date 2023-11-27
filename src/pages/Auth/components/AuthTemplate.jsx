@@ -18,6 +18,8 @@ export default function AuthTemplate({
   link,
   className,
   action,
+  createAccount,
+  LoginToApp,
 }) {
   return (
     <AuthContainer divClassName="w-80 h-fit flex flex-col">
@@ -28,6 +30,8 @@ export default function AuthTemplate({
         link={link}
         className={className}
         action={action}
+        createAccount={createAccount}
+        LoginToApp={LoginToApp}
       />
       <Divider />
       <ButtonLink className="bg-white mb-3 border rounded text-black font-normal text-sm">
@@ -49,4 +53,6 @@ AuthTemplate.propTypes = {
   link: PropTypes.string,
   className: PropTypes.string,
   action: PropTypes.string,
+  createAccount: PropTypes.func,
+  LoginToApp: PropTypes.func,
 };
