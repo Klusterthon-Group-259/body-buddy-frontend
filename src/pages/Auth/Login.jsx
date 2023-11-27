@@ -25,6 +25,7 @@ export default function Login() {
       const isSuccessful = response.data;
       const id = response.data.user.id;
       const accessToken = response.data.accessToken;
+      console.log(id, accessToken);
       const URL = `/dashboard?id=${encodeURIComponent(
         id
       )}&token=${encodeURIComponent(accessToken)}`;
@@ -33,8 +34,8 @@ export default function Login() {
         toast.success("Logged in successfully!", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        reset();
         navigate(URL);
+        reset();
       }
     } catch (error) {
       toast.error("Something went wrong. Please try again", {
