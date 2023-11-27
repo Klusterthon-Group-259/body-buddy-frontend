@@ -31,7 +31,7 @@ export const router = createBrowserRouter(
         <Route path="create-account" element={<CreateAccount />} />
       </Route>
       <Route path="verify-email" element={<VerifyEmail />} />
-      <Route path="email-verified/:token" element={<EmailVerified />} />
+      <Route path="email-verified" element={<EmailVerified />} />
       <Route path="forgot-password" element={<ForgotPassword />} />
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<OnboardingPage1 />} />
